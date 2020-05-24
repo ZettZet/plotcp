@@ -28,7 +28,8 @@ def plotcp(
 
     if reim not in [RE, IM, BOTH]:
         raise ValueError("'reim' must be 'real', 'imag' or 'both'")
-
+    
+    actions = []
 
     fig, ax = plt.subplots()
 
@@ -118,3 +119,4 @@ def plotcp(
 
     plt.xlim(xbound)
     plt.ylim(ybound)
+    return plt
