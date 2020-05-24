@@ -23,7 +23,7 @@ def plotcp(
     reim=BOTH,
 ):
 
-    if faxis not in [ORIG, TRANSF, BOTH, INITS]:
+    if faxis not in [ORIG, TRANSF, BOTH]:
         raise ValueError("'faxis' must be 'origin', 'trasform' or 'both'")
 
     if reim not in [RE, IM, BOTH]:
