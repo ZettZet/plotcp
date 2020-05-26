@@ -1,4 +1,4 @@
-__version__ = '0.2.3'
+__version__ = '0.2.4'
 
 from enum import Flag, auto
 from typing import Callable, Tuple, Iterator, Optional
