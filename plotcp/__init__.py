@@ -34,7 +34,7 @@ def plotcp(
         reim: str = BOTH,
         inits_only: bool = False,
 ):
-    if inits_only is True and inits_point is None:
+    if inits_only and inits_point is None:
         raise ValueError("'inits_point' is None")
 
     if faxis not in [ORIG, TRANSF, BOTH]:
