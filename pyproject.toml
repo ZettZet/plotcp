@@ -1,8 +1,12 @@
 [tool.poetry]
 name = "plotcp"
 version = "0.2.1"
-description = ""
-authors = ["Winkel <dmesser@yandex.ru>"]
+description = "Python package for drawing transformations of functions of a complex variable of the whole grid or a given area"
+authors = ["ZetZet <dmesser@yandex.ru>", "mefolder <verybigfolder@yandex.ru>"]
+license = "GNU Affero General Public License v3.0"
+readme = "README.md"
+repository = "https://github.com/ZettZet/plotcp"
+classifiers = ["Topic :: Scientific/Engineering :: Visualization"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
