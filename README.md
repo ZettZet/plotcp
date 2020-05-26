@@ -17,9 +17,9 @@ circle = [2*(cos(x)+I*sin(x) for x in np.linspace(0, 2*pi)]
 **Finally** choose what you want to see and call plotcp
 parameter | description | type
 -|:-|:-
-fun | your predefined fuction f(z) | callable
-xbound | real plot edges | np.array([left, right])
-ybound | imaginary plot edges | np.array([bottom, top])
+fun | your predefined function f(z) | callable
+xbound | real plot bounds | np.array([left, right])
+ybound | imaginary plot bounds | np.array([bottom, top])
 nsteps | how many nodes will be on each line (bigger value - smoother lines - more time to compute) | int
 gridstep | spaces between lines parallel to axis | int
 inits_point | array of your areas points | enumerable type filled with complex points
