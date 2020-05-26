@@ -25,7 +25,7 @@ circle = [2*(cos(x)+1j*sin(x) for x in np.linspace(0, 2*pi)]
 ## **Finally** 
 choose what you want to see and call plotcp
 parameter | description | type
--|:-|:-
+-|-|-
 fun | your predefined function f(z) | Callable[[complex], complex]
 xbound | real plot bounds | Tuple[left: int, right: int]
 ybound | imaginary plot bounds | Tuple[top: int, bottom: int]
