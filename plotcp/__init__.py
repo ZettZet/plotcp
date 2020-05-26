@@ -5,13 +5,22 @@ from typing import Callable
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 import numpy as np
-from sympy import I, re, im
+
+I = 1j
 
 ORIG = 'origin'
 TRANSF = 'transform'
 RE = 'real'
 IM = 'imag'
 BOTH = 'both'
+
+
+def re(z: complex) -> float:
+    return z.real
+
+
+def im(z: complex) -> float:
+    return z.imag
 
 
 def plotcp(
@@ -25,7 +34,7 @@ def plotcp(
         reim: str = BOTH,
         inits_only: bool = False,
 ):
-    if inits_only == True and inits_point == None:
+    if inits_only is True and inits_point is None:
         raise ValueError("'inits_point' is None")
 
     if faxis not in [ORIG, TRANSF, BOTH]:
@@ -44,7 +53,7 @@ def plotcp(
     v_re = []
     v_im = []
 
-    if inits_only == False:
+    if not inits_only:
         if faxis == TRANSF or faxis == BOTH:
             x = np.linspace(xbound[0], xbound[1], 2 * gridstep)
             y = np.linspace(ybound[0], ybound[1], 2 * gridstep)
