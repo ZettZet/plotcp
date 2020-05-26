@@ -17,12 +17,12 @@ circle = [2*(cos(x)+I*sin(x) for x in np.linspace(0, 2*pi)]
 **Finally** choose what you want to see and call plotcp
 parameter | description | type
 -|:-|:-
-fun | your predefined fuction f(z) | callable
-xbound | real plot edges | np.array([left, right])
-ybound | imaginary plot edges | np.array([bottom, top])
+fun | your predefined function f(z) | callable
+xbound | real plot bounds | Tuple[left: int, right: int]
+ybound | imaginary plot bounds | Tuple[top: int, bottom: int]
 nsteps | how many nodes will be on each line (bigger value - smoother lines - more time to compute) | int
 gridstep | spaces between lines parallel to axis | int
-inits_point | array of your areas points | enumerable type filled with complex points
-faxis | what to display: 'origin', 'transform' or 'both' (named constants, correspondingly: ORIG, TRANSF, BOTH) | str
-reim | which part to display: 'real', 'imag' or 'both' (named constants, correspondingly: RE, IM, BOTH) (**only works with grid lines, and not areas**) | str
+inits_point | array of your areas points | optional iterator
+faxis | what to display: 'origin', 'transform' or 'both' (named constants, correspondingly: Faxis.ORIG, Faxis.TRANSF, Faxis.BOTH) | Faxis(Flag)
+reim | which part to display: 'real', 'imag' or 'both' (named constants, correspondingly: Reim.RE, Reim.IM, Reim.BOTH) (**only works with grid lines, and not areas**) | Reim(Flag)
 inits_only | show initial points only? transformed or not | bool
