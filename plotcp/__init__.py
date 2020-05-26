@@ -16,7 +16,7 @@ class Faxis(Flag):
     BOTH = ORIG | TRANSF
 
 
-class REIM(Flag):
+class Reim(Flag):
     RE = auto()
     IM = auto()
     BOTH = RE | IM
@@ -38,7 +38,7 @@ def plotcp(
         gridstep: int = 10,
         inits_point: Optional[Iterator] = None,
         faxis: Faxis = Faxis.BOTH,
-        reim: REIM = REIM.BOTH,
+        reim: Reim = Reim.BOTH,
         inits_only: bool = False,
 ):
     if inits_only and inits_point is None:
@@ -59,21 +59,21 @@ def plotcp(
             x = np.linspace(xbound[0], xbound[1], 2 * gridstep)
             y = np.linspace(ybound[0], ybound[1], 2 * gridstep)
 
-            if reim == REIM.RE or reim == REIM.BOTH:
+            if reim == Reim.RE or reim == Reim.BOTH:
                 x_parallels = [[item_x + item_y * I for item_x in np.linspace(xbound[0], xbound[1], nsteps)] for item_y
                                in y]
                 u = [[fun(item) for item in xs] for xs in x_parallels]
                 u_re = [np.array([re(item) for item in us]) for us in u]
                 u_im = [np.array([im(item) for item in us]) for us in u]
 
-            if reim == REIM.IM or reim == REIM.BOTH:
+            if reim == Reim.IM or reim == Reim.BOTH:
                 y_parallels = [[item_x + item_y * I for item_y in np.linspace(ybound[0], ybound[1], nsteps)] for item_x
                                in x]
                 v = [[fun(item) for item in ys] for ys in y_parallels]
                 v_re = [np.array([re(item) for item in vs]) for vs in v]
                 v_im = [np.array([im(item) for item in vs]) for vs in v]
 
-        if reim == REIM.RE:
+        if reim == Reim.RE:
             if faxis == Faxis.ORIG:
                 ax.yaxis.set_major_locator(ticker.MultipleLocator(y_step))
                 ax.grid(which='major', axis='y', color='b')
@@ -88,7 +88,7 @@ def plotcp(
                 for r, i in zip(u_re, u_im):
                     ax.plot(r, i, color='b')
 
-        elif reim == REIM.IM:
+        elif reim == Reim.IM:
             if faxis == Faxis.ORIG:
                 ax.xaxis.set_major_locator(ticker.MultipleLocator(x_step))
                 ax.grid(which='major', axis='x', color='tab:orange')
