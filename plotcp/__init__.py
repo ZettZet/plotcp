@@ -49,14 +49,14 @@ def plotcp(
     plt.ylim(y_bound)
 
     if init_points is not None:
-        if inits == Inits.TRANSFORM or inits == Inits.BOTH:
+        if inits & Inits.TRANSFORM:
             for init in init_points:
                 fun_init = [fun(item) for item in init]
                 fun_init_re = np.real(fun_init)
                 fun_init_im = np.imag(fun_init)
                 ax.plot(fun_init_re, fun_init_im, color='g')
 
-        if inits == Inits.ORIG or inits == Inits.BOTH:
+        if inits & Inits.ORIG:
             for init in init_points:
                 init_re = np.real(init)
                 init_im = np.imag(init)
@@ -68,23 +68,23 @@ def plotcp(
     x_step = (x_bound[1] - x_bound[0]) / grid_step
     y_step = (y_bound[1] - y_bound[0]) / grid_step
 
-    if faxis == Faxis.ORIG or faxis == Faxis.BOTH:
-        if reim == Reim.RE or reim == Reim.BOTH:
+    if faxis & Faxis.ORIG:
+        if reim & Reim.RE:
             ax.yaxis.set_major_locator(ticker.MultipleLocator(y_step))
             ax.grid(which='major', axis='y', color='b')
 
-        if reim == Reim.IM or reim == Reim.BOTH:
+        if reim & Reim.IM:
             ax.xaxis.set_major_locator(ticker.MultipleLocator(x_step))
             ax.grid(which='major', axis='x', color='tab:orange')
 
         if faxis != Faxis.BOTH:
             return plt
 
-    if faxis == Faxis.TRANSFORM or faxis == Faxis.BOTH:
+    if faxis & Faxis.TRANSFORM:
         x = np.linspace(x_bound[0], x_bound[1], 2 * grid_step)
         y = np.linspace(y_bound[0], y_bound[1], 2 * grid_step)
 
-        if reim == Reim.RE or reim == Reim.BOTH:
+        if reim & Reim.RE:
             x_parallels = [[item_x + item_y * 1j for item_x in np.linspace(x_bound[0], x_bound[1], n_steps)] for item_y
                            in y]
             u = [[fun(item) for item in xs] for xs in x_parallels]
@@ -94,7 +94,7 @@ def plotcp(
             for r, i in zip(u_re, u_im):
                 ax.plot(r, i, color='b')
 
-        if reim == Reim.IM or reim == Reim.BOTH:
+        if reim & Reim.IM:
             y_parallels = [[item_x + item_y * 1j for item_y in np.linspace(y_bound[0], y_bound[1], n_steps)] for item_x
                            in x]
             v = [[fun(item) for item in ys] for ys in y_parallels]
