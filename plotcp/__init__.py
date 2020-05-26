@@ -29,7 +29,7 @@ def plotcp(
         raise ValueError("'inits_point' is None")
 
     if faxis not in [ORIG, TRANSF, BOTH]:
-        raise ValueError("'faxis' must be 'origin', 'trasform' or 'both'")
+        raise ValueError("'faxis' must be 'origin', 'transform' or 'both'")
 
     if reim not in [RE, IM, BOTH]:
         raise ValueError("'reim' must be 'real', 'imag' or 'both'")
