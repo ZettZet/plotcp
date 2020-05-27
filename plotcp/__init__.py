@@ -2,6 +2,7 @@ __version__ = '0.2.4'
 
 from enum import Flag, auto
 from typing import Callable, Tuple, Iterator, Optional
+from matplotlib.axes import Axes
 
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
@@ -39,7 +40,7 @@ def plotcp(
         reim: Reim = Reim.BOTH,
         inits: Inits = Inits.BOTH,
         inits_only: bool = False,
-):
+) -> Axes:
     if inits_only and init_points is None:
         raise ValueError("'init_points' is None")
 
@@ -63,7 +64,7 @@ def plotcp(
                 ax.plot(init_re, init_im, color='g')
 
         if inits_only:
-            return plt
+            return ax
 
     x_step = (x_bound[1] - x_bound[0]) / grid_step
     y_step = (y_bound[1] - y_bound[0]) / grid_step
@@ -78,7 +79,7 @@ def plotcp(
             ax.grid(which='major', axis='x', color='tab:orange')
 
         if faxis != Faxis.BOTH:
-            return plt
+            return ax
 
     if faxis & Faxis.TRANSFORM:
         x = np.linspace(x_bound[0], x_bound[1], 2 * grid_step)
@@ -104,4 +105,4 @@ def plotcp(
             for r, i in zip(v_re, v_im):
                 ax.plot(r, i, color='tab:orange')
 
-    return plt
+    return ax
