@@ -40,7 +40,6 @@ def plotcp(
         inits_only: bool = False,
 ) -> Axes:
     """
-
     :param fun: your predefined function f(z)
     :param x_bound: real plot bounds
     :param y_bound: imaginary plot bounds
