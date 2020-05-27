@@ -28,7 +28,6 @@ class Inits(Flag):
     BOTH = ORIG | TRANSFORM
 
 
-# TODO Add docstring
 def plotcp(
         fun: Callable[[complex], complex],
         x_bound: Tuple[int, int],
@@ -41,6 +40,23 @@ def plotcp(
         inits: Inits = Inits.BOTH,
         inits_only: bool = False,
 ) -> Axes:
+    """
+
+    :param fun: your predefined function f(z)
+    :param x_bound: real plot bounds
+    :param y_bound: imaginary plot bounds
+    :param n_steps: how many nodes will be on each line
+    :param grid_step: spaces between lines parallel to axis
+    :param init_points: array of your areas points
+    :param faxis: what to display: 'origin', 'transform' or 'both' (named constants, correspondingly: Faxis.ORIG,
+    Faxis.TRANSFORM, Faxis.BOTH)
+    :param reim: which part to display: 'real', 'imag' or 'both' (named constants, correspondingly: Reim.RE, Reim.IM,
+    Reim.BOTH) (only works with grid lines, and not areas)
+    :param inits: what to display: 'origin', 'transform' or 'both' (named constants, correspondingly: Inits.ORIG,
+    Inits.TRANSFORM, Inits.BOTH)
+    :param inits_only: show initial points only? transformed or not
+    :return: matplotlib Axes object
+    """
     if inits_only and init_points is None:
         raise ValueError("'init_points' is None")
 
