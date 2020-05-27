@@ -9,7 +9,6 @@ import matplotlib.ticker as ticker
 import numpy as np
 
 
-# TODO Update new names to README.md
 class Faxis(Flag):
     ORIG = auto()
     TRANSFORM = auto()
