@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "plotcp"
-version = "0.2.4"
+version = "0.2.5"
 description = "Python package for drawing transformations of functions of a complex variable of the whole grid or a given area"
 authors = ["ZetZet <dmesser@yandex.ru>", "mefolder <verybigfolder@yandex.ru>"]
 license = "GNU Affero General Public License v3.0"
