@@ -1,28 +1,42 @@
 # PlotComplexPlane
+
 Python library for plotting complex functions transformations
-# It can...
-  - *plot complex planes (both transformed and original)*
-  - *plot transformations of specific areas (both transformed and original)*
-  - *plot lines parallel to real or imaginary axis (both transformed and original)*
-# How to use:
-## **First** 
+
+## It can...
+
+- *plot complex planes (both transformed and original)*
+- *plot transformations of specific areas (both transformed and original)*
+- *plot lines parallel to real or imaginary axis (both transformed and original)*
+
+## How to use
+
+### **First**
+
 import plotcp
+
 ```python
 from plotcp import *
 ```
 
-## **Second** 
+### **Second**
+
 define a callable complex function:
+
 ```python
 def f(z):
     return (z+1)/z
 ```
-## **Optionally** 
+
+### **Optionally**
+
 find edges of your specific area. For example: |z|=2
+
 ```python
 circle = [2*(cos(x)+1j*sin(x) for x in np.linspace(0, 2*pi)]
 ```
-## **Finally** 
+
+### **Finally**
+
 choose what you want to see and call plotcp
 
 parameter |description |type
