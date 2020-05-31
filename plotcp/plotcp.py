@@ -62,8 +62,8 @@ def plotcp(
                 circles = [np.array(
                     [y_step * k * (np.cos(theta) + 1j * np.sin(theta)) for theta in np.linspace(0, 2 * np.pi, n_steps)])
                     for k in range(max(x_bound[0], y_bound[0], x_bound[1], y_bound[1]) * 2)]
-                circles_re = [np.real(circ) for circ in circles]
-                circles_im = [np.imag(circ) for circ in circles]
+                circles_re = [np.real(circe) for circe in circles]
+                circles_im = [np.imag(circe) for circe in circles]
                 for r, i in zip(circles_re, circles_im):
                     ax.plot(r, i, color='tab:orange')
 
