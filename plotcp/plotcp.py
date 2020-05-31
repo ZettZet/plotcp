@@ -39,8 +39,6 @@ def plotcp(
 
     plt.xlim(x_bound)
     plt.ylim(y_bound)
-    x_step = 0
-    y_step = 0
 
     if polar:
         x_step = 2 * np.pi / grid_step[0]
