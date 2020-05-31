@@ -37,8 +37,9 @@ faxis |what to display: 'origin', 'transform' or 'both' (named constants, corres
 reim |which part to display: 'real', 'imag' or 'both' (named constants, correspondingly: Reim.RE, Reim.IM, Reim.BOTH) (**only works with grid lines, and not areas**) |Reim(Enum.Flag)
 inits |what to display: 'origin', 'transform' or 'both' (named constants, correspondingly: Inits.ORIG, Inits.TRANSFORM, Inits.BOTH) |Inits(Enum.Flag)
 inits_only |show initial points only? transformed or not |bool
+param polar |use polar grid parametrization instead of cartesian|bool
 
 ```python
-ax = plotcp(f, (-4, 4), (-4, 4), init_points=[top, bottom, right, left], faxis=Faxis.BOTH,
-            reim=Reim.BOTH, inits=Inits.BOTH)
+ax = plotcp(f, (-4, 4), (-4, 4), init_points=[circle], faxis=Faxis.TRANSFORM,
+            reim=Reim.IM, inits=Inits.BOTH)
 ```
