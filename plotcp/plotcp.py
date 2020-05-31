@@ -1,11 +1,11 @@
-from typing import Callable, Tuple, Optional, Iterator
+from typing import Callable, Tuple, Optional
 
-import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
+import numpy as np
 from matplotlib.axes import Axes
 
-from plotcp.enums import Faxis, Reim, Inits
+from plotcp.enums import Faxis, Reim
 
 
 def plotcp(
@@ -14,12 +14,10 @@ def plotcp(
         y_bound: Tuple[int, int],
         n_steps: int = 100,
         grid_step: Tuple[int, int] = (10, 10),
-        init_points: Optional[Iterator] = None,
         faxis: Faxis = Faxis.BOTH,
         reim: Reim = Reim.BOTH,
-        inits: Inits = Inits.BOTH,
-        inits_only: bool = False,
         polar: bool = False,
+        ax: Optional[Axes] = None
 ) -> Axes:
     """
     :param fun: your predefined function f(z)
@@ -27,42 +25,20 @@ def plotcp(
     :param y_bound: imaginary plot bounds
     :param n_steps: how many nodes will be on each line
     :param grid_step: spaces between lines parallel to axis
-    :param init_points: array of your areas points
     :param faxis: what to display: 'origin', 'transform' or 'both' (named constants, correspondingly: Faxis.ORIG,
     Faxis.TRANSFORM, Faxis.BOTH)
     :param reim: which part to display: 'real', 'imag' or 'both' (named constants, correspondingly: Reim.RE, Reim.IM,
     Reim.BOTH) (only works with grid lines, and not areas)
-    :param inits: what to display: 'origin', 'transform' or 'both' (named constants, correspondingly: Inits.ORIG,
     Inits.TRANSFORM, Inits.BOTH)
-    :param inits_only: show initial points only? transformed or not
     :param polar: use polar grid parametrization instead of cartesian
+    :param ax: Axes object to plot on
     :return: matplotlib Axes object
     """
-    if inits_only and init_points is None:
-        raise ValueError("'init_points' is None")
-
-    fig, ax = plt.subplots()
+    if ax is None:
+        fig, ax = plt.subplots()
 
     plt.xlim(x_bound)
     plt.ylim(y_bound)
-
-    if init_points is not None:
-        if inits & Inits.TRANSFORM:
-            for init in init_points:
-                fun_init = [fun(item) for item in init]
-                fun_init_re = np.real(fun_init)
-                fun_init_im = np.imag(fun_init)
-                ax.plot(fun_init_re, fun_init_im, color='g')
-
-        if inits & Inits.ORIG:
-            for init in init_points:
-                init_re = np.real(init)
-                init_im = np.imag(init)
-                ax.plot(init_re, init_im, color='g')
-
-        if inits_only:
-            return ax
-
     x_step = 0
     y_step = 0
 
