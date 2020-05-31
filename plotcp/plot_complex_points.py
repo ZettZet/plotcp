@@ -5,7 +5,7 @@ import numpy as np
 from matplotlib.axes import Axes
 
 
-def plot_complex_points(init_points: Iterator[complex], ax: Optional[Axes] = None) -> Axes:
+def plot_complex_points(init_points: Iterator[complex], *, ax: Optional[Axes] = None) -> Axes:
     """
     Plot complex points
     :param init_points: values to be plotted

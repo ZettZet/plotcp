@@ -12,6 +12,7 @@ def plotcp(
         fun: Callable[[complex], complex],
         x_bound: Tuple[int, int],
         y_bound: Tuple[int, int],
+        *,
         n_steps: int = 100,
         grid_step: Tuple[int, int] = (10, 10),
         faxis: Faxis = Faxis.BOTH,

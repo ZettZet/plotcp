@@ -16,9 +16,9 @@ left = [1 + y * 1j for y in np.linspace(1, 2, 5)]
 right = [2 + y * 1j for y in np.linspace(1, 2, 5)]
 
 ax = plotcp(f, (-4, 4), (-4, 4), faxis=Faxis.BOTH, reim=Reim.BOTH)
-ax = plot_complex_points([f(z) for z in top], ax)
-ax = plot_complex_points([f(z) for z in bottom], ax)
-ax = plot_complex_points([f(z) for z in left], ax)
-ax = plot_complex_points([f(z) for z in right], ax)
+ax = plot_complex_points([f(z) for z in top], ax=ax)
+ax = plot_complex_points([f(z) for z in bottom], ax=ax)
+ax = plot_complex_points([f(z) for z in left], ax=ax)
+ax = plot_complex_points([f(z) for z in right], ax=ax)
 
 plt.show()
