@@ -34,7 +34,7 @@ import numpy as np
 
 from plotcp import plot_complex_points
 
-def f(z):
+def f(z: compex) -> complex: # Define function to plot
     return sin(z)
 
 
