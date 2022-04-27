@@ -5,10 +5,10 @@ import matplotlib.ticker as ticker
 import numpy as np
 from matplotlib.axes import Axes
 
-from plotcp.enums import Faxis, Reim
+from .enums import Faxis, Reim
 
 
-def plotcp(
+def plotcp_plt(
         fun: Callable[[complex], complex],
         x_bound: Tuple[int, int],
         y_bound: Tuple[int, int],

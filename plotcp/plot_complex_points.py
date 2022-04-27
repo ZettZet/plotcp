@@ -1,11 +1,13 @@
 from typing import Iterator, Optional
 
 import matplotlib.pyplot as plt
+from matplotlib.axes import Axes
+
 import numpy as np
 import plotly.graph_objs as go
 
 
-def plot_complex_points(init_points: Iterator[complex], *, ax: Optional[Axes] = None) -> Axes:
+def plot_complex_points_plt(init_points: Iterator[complex], *, ax: Optional[Axes] = None) -> Axes:
     """
     Plot complex points
     :param init_points: values to be plotted
