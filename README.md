@@ -1,3 +1,7 @@
+# Plotly version
+
+Plotly version can be found [here](https://github.com/ZettZet/plotly_z)
+
 # PlotComplexPlane
 
 Python library for plotting complex functions transformations
