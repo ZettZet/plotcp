@@ -8,7 +8,7 @@ from matplotlib.axes import Axes
 from .enums import Faxis, Reim
 
 
-def plotcp_plt(
+def plotcp(
         fun: Callable[[complex], complex],
         x_bound: Tuple[int, int],
         y_bound: Tuple[int, int],

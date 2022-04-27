@@ -9,23 +9,28 @@ Python library for plotting complex functions transformations
 - *plot lines parallel to real or imaginary axis (both transformed and original)*
 
 ## Usage
-### plotcp
+
+### plotcp_plt
+
 To plot f(z) = (z+1)/z with x bound from -4 to 4 and y bound from -4 to 4
 
 ```python3
 from plotcp import plotcp
 
 
-def f(z: complex) -> complex: # Define function to plot
-    return (z+1)/z
+def f(z: complex) -> complex:  # Define function to plot
+    return (z + 1) / z
 
 
-# Call plotcp
+# Call plotcp_plt
 # Second and third arguments define limits of a plot
 ax = plotcp(f, (-4, 4), (-4, 4))
 ```
-For full parameters list check ```help(plotcp.plotcp)```
-### plot_complex_points
+
+For full parameters list check ```help(plotcp_plt.plotcp_plt)```
+
+### plot_complex_points_plt
+
 ```python3
 from cmath import sin
 
@@ -34,7 +39,8 @@ import numpy as np
 
 from plotcp import plot_complex_points
 
-def f(z: compex) -> complex: # Define function to plot
+
+def f(z: complex) -> complex:  # Define function to plot
     return sin(z)
 
 
@@ -50,7 +56,6 @@ ax = plot_complex_points(bottom, ax=ax)
 ax = plot_complex_points(left, ax=ax)
 ax = plot_complex_points(right, ax=ax)
 
-
 # Apply function to area and plot it on a new plot
 ax2 = plot_complex_points([f(z) for z in top])
 ax2 = plot_complex_points([f(z) for z in bottom], ax=ax2)
@@ -59,4 +64,5 @@ ax2 = plot_complex_points([f(z) for z in right], ax=ax2)
 
 plt.show()
 ```
+
 For full parameters list check ```help(plotcp.plot_complex_points)```
